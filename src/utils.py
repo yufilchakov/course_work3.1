@@ -30,3 +30,7 @@ def get_hide_number(number):
     else:
         card_name = " ".join(requisites[:-1])
         return card_name + " " + requisites[-1][:4] + " " + requisites[-1][4:6] + "** **** " + requisites[-1][-4:]
+
+
+def get_summa(summa):
+    return f"{summa["operationAmount"]["amount"]} {summa["operationAmount"]["currency"]["name"]}"
