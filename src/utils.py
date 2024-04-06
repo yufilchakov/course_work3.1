@@ -16,3 +16,8 @@ def sort_date(json_operations):
     json_date_time = sorted(json_operations, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'),
                             reverse=True)
     return json_date_time
+
+
+def get_changes_date(date):
+    object_date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
+    return datetime.strftime(object_date,'%d.%m.%Y')
