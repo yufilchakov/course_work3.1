@@ -34,3 +34,15 @@ def get_hide_number(number):
 
 def get_summa(summa):
     return f"{summa["operationAmount"]["amount"]} {summa["operationAmount"]["currency"]["name"]}"
+
+
+def get_main(number_operations=5):
+    sorting = sort_date(list_of_operations(load_operations_json("operations.json")))
+    for operation in sorting:
+        if number_operations == 0:
+            break
+        print(get_changes_date(operation["date"]), operation["description"])
+        if operation["description"] != "Открытие вклада":
+            print(get_hide_number(operation["from"]) + " -> ", end="")
+        print(get_hide_number(operation["to"]),"\n" + get_summa(operation),"\n")
+        number_operations -= 1
