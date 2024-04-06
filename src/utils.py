@@ -21,3 +21,12 @@ def sort_date(json_operations):
 def get_changes_date(date):
     object_date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
     return datetime.strftime(object_date,'%d.%m.%Y')
+
+
+def get_hide_number(number):
+    requisites = number.split()
+    if requisites[0] == "Счет":
+        return "Счет **" + number[-4:]
+    else:
+        card_name = " ".join(requisites[:-1])
+        return card_name + " " + requisites[-1][:4] + " " + requisites[-1][4:6] + "** **** " + requisites[-1][-4:]
